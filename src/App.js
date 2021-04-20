@@ -31,11 +31,11 @@ class App extends Component {
   }
 
   render(){
-    const friends = this.state.friends.map((value)=>{
+    const friends = this.state.friends.map((friend, index)=>{
       return(
-        <div key="friend">
-          <img width='200px' src={value.picture}></img>
-          <span>{value.name}</span>
+        <div key={ `friend-${ index }-${ friend.name }` }>
+          <img id='cat' width='200px' height='120px'  src={friend.picture}  alt='friend' ></img>
+          <span>{friend.name}</span>
         </div>
       )
     })

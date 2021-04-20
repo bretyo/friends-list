@@ -31,6 +31,14 @@ class App extends Component {
   }
 
   render(){
+    const friends = this.state.friends.map((value)=>{
+      return(
+        <div key="friend">
+          <img width='200px' src={value.picture}></img>
+          <span>{value.name}</span>
+        </div>
+      )
+    })
     return (
       <div>
         <label>
@@ -42,6 +50,7 @@ class App extends Component {
           <input value={this.state.name} onChange={ (e) => this.updateName(e.target.value)}/>
         </label>
         <button onClick={()=> this.addFriend()}>Add Friend</button>
+        {friends}
       </div>
     );
   }
